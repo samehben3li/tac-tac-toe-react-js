@@ -6,7 +6,7 @@ import './app.css';
 
 function App() {
 
-  const [board,setBoard] = useState([1,2,3,4,5,6,7,8,9])
+  const board = [1,2,3,4,5,6,7,8,9]
   const [cells,setCells] = useState([1,2,3,4,5,6,7,8,9])
   const [x_play,setX_play] = useState([])
   const [o_play,seto_play] = useState([])
@@ -28,8 +28,6 @@ function App() {
 
   useEffect(()=>{
 
-    const com =[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
-
     if (x_play.includes(1&&2&&3)||x_play.includes(4&&5&&6)||x_play.includes(7&&8&&9)||
     x_play.includes(1&&4&&7)||x_play.includes(2&&5&&8)||x_play.includes(3&&6&&9)||
     x_play.includes(1&&5&&9)||x_play.includes(3&&5&&7)){
@@ -43,7 +41,7 @@ function App() {
     if(cells.length===0){
       setResult("Draw !")
     }
-  },[cells])
+  },[x_play,o_play,cells])
 
   return (
     result==="" 
